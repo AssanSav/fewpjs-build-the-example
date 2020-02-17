@@ -10,17 +10,17 @@ modal.classList.add("hidden");
 
 let likesBtn = document.querySelectorAll(".like-glyph");
 
-for (const like of likesBtn) {
-  like.addEventListener("click", event => {
+for (let i = 0; i < likesBtn.length; i++) {
+  likesBtn[i].addEventListener("click", event => {
     mimicServerCall()
       .then(event => {
-        if (like.innerHTML === EMPTY_HEART) {
-          like.innerHTML = FULL_HEART
-          like.classList.add("activated-heart");
+        if (likesBtn[i].innerHTML === EMPTY_HEART) {
+          likesBtn[i].innerHTML = FULL_HEART
+          likesBtn[i].classList.add("activated-heart");
         }
         else {
-          like.innerHTML = EMPTY_HEART
-          like.classList.remove("activated-heart");
+          likesBtn[i].innerHTML = EMPTY_HEART
+          likesBtn[i].classList.remove("activated-heart");
         }
       })
       .catch(error => {
