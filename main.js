@@ -13,9 +13,9 @@ let likesBtn = document.querySelectorAll(".like-glyph");
 for (let i = 0; i < likesBtn.length; i++) {
   likesBtn[i].addEventListener("click", event => {
     mimicServerCall()
-      .then(event => {
-        if (likesBtn[i].innerHTML === EMPTY_HEART) {
-          likesBtn[i].innerHTML = FULL_HEART
+    .then(event => {
+      if (likesBtn[i].innerHTML === EMPTY_HEART) {
+          likesBtn[i].textContent = FULL_HEART
           likesBtn[i].classList.add("activated-heart");
         }
         else {
@@ -25,7 +25,7 @@ for (let i = 0; i < likesBtn.length; i++) {
       })
       .catch(error => {
         modal.classList.remove("hidden")
-        modal.innerHTML = error
+        modal.textContent = error
         setTimeout(function () {
           modal.classList.add("hidden")
         }, 5000);
